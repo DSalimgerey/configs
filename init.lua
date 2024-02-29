@@ -170,7 +170,12 @@ require("lazy").setup({
 
 			-- Useful status updates for LSP.
 			-- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-			{ "j-hui/fidget.nvim", opts = {} },
+			{
+				"j-hui/fidget.nvim",
+				config = function()
+					require("fidget").setup({})
+				end,
+			},
 		},
 
 		config = function()
@@ -271,7 +276,7 @@ require("lazy").setup({
 			--  So, we create new capabilities with nvim cmp, and then broadcast that to the servers.
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
-
+			-- TODO: see how to set up other servers
 			local servers = {
 				clangd = {},
 				gopls = {},
@@ -590,6 +595,16 @@ require("lazy").setup({
 			vim.keymap.set("n", "<C-s>", function()
 				ui.nav_file(4)
 			end)
+		end,
+	},
+	--{ "ryanoasis/vim-devicons" },
+	{
+		"echasnovski/mini.nvim",
+		version = "*",
+		config = function()
+			require("mini.statusline").setup({
+				use_icons = false,
+			})
 		end,
 	},
 })
