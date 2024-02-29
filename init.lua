@@ -1,3 +1,13 @@
+-- for additional information see this github repos:
+-- 1. Neovim kickstart - https://github.com/nvim-lua/kickstart.nvim/tree/master
+-- and second one
+-- 2. ThePrimeagen's config - https://github.com/ThePrimeagen/init.lua
+--
+-- and additional links to their YouTube videos
+-- ThePrimeagen - https://www.youtube.com/watch?v=w7i4amO_zaE&t=68s
+-- teej_dev daily - https://www.youtube.com/watch?v=-joJuscbM5w&list=PLDWRoFV4JjSSUC-EXY4tyRUZ73LF4jk7n
+-- (this video is first one in rewrite kickstart config file video series)
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
