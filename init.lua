@@ -711,4 +711,14 @@ require("lazy").setup({
 			require("typescript-tools").setup({})
 		end,
 	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		main = "ibl",
+		config = function()
+			require("ibl").setup({
+				scope = { enabled = false },
+			})
+		end,
+	},
 })
