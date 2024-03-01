@@ -8,6 +8,8 @@
 -- teej_dev daily - https://www.youtube.com/watch?v=-joJuscbM5w&list=PLDWRoFV4JjSSUC-EXY4tyRUZ73LF4jk7n
 -- (this video is first one in rewrite kickstart config file video series)
 
+-- TOOD: set up lazy loading some plugins
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
