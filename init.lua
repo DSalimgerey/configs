@@ -23,7 +23,7 @@ vim.opt.smartcase = true
 
 vim.opt.scrolloff = 10
 
-vim.opt.updatetime = 50
+vim.opt.updatetime = 0
 
 vim.opt.hlsearch = true
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
@@ -61,6 +61,13 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+
+-- vim diagnostic messages work incorrectly i try enable diagnostic virtual_text
+-- option and set update time to 0 to see make it some differences on diagnostic
+-- messages work or not
+vim.diagnostic.config({
+	virtual_text = true,
+})
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
@@ -164,7 +171,11 @@ require("lazy").setup({
 	{
 		"folke/neodev.nvim",
 		config = function()
-			require("neodev").setup({})
+			require("neodev").setup({
+				library = {
+					enable = true,
+				},
+			})
 		end,
 	},
 	{
