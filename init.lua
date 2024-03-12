@@ -30,7 +30,7 @@ vim.opt.smartindent = true
 
 vim.opt.wrap = false
 
-vim.opt.guicursor = true
+vim.opt.guicursor = ""
 
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -451,6 +451,17 @@ require("lazy").setup({
 		},
 	},
 
+	{
+		"Exafunction/codeium.nvim",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
+		config = function()
+			require("codeium").setup({})
+		end,
+	},
+
 	{ -- Autocompletion
 		"hrsh7th/nvim-cmp",
 		event = "InsertEnter",
@@ -541,6 +552,7 @@ require("lazy").setup({
 					{ name = "nvim_lsp" },
 					{ name = "luasnip" },
 					{ name = "path" },
+					{ name = "codeium" },
 				},
 			})
 		end,
@@ -691,56 +703,18 @@ require("lazy").setup({
 		end,
 	},
 
-	{ -- Useful plugin to show you pending keybinds.
-		"folke/which-key.nvim",
-		event = "VeryLazy", -- Sets the loading event to 'VeryLazy'
-		config = function() -- This is the function that runs, AFTER loading
-			require("which-key").setup()
-
-			-- Document existing key chains
-			require("which-key").register({
-				["<leader>c"] = { name = "[C]ode", _ = "which_key_ignore" },
-				["<leader>d"] = { name = "[D]ocument", _ = "which_key_ignore" },
-				["<leader>r"] = { name = "[R]ename", _ = "which_key_ignore" },
-				["<leader>s"] = { name = "[S]earch", _ = "which_key_ignore" },
-				["<leader>w"] = { name = "[W]orkspace", _ = "which_key_ignore" },
-			})
-		end,
-	},
-
-	{
-		"pmizio/typescript-tools.nvim",
-		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		config = function()
-			require("typescript-tools").setup({})
-		end,
-	},
-
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		main = "ibl",
-		config = function()
-			require("ibl").setup({
-				scope = { enabled = false },
-			})
-		end,
-	},
+	--{
+	--	"pmizio/typescript-tools.nvim",
+	--	dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+	--	config = function()
+	--		require("typescript-tools").setup({})
+	--	end,
+	--},
 
 	{
 		"mbbill/undotree",
 		config = function()
 			vim.keymap.set("n", "<leader><F5>", vim.cmd.UndotreeToggle)
-		end,
-	},
-
-	{
-		"Exafunction/codeium.nvim",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"hrsh7th/nvim-cmp",
-		},
-		config = function()
-			require("codeium").setup({})
 		end,
 	},
 })
